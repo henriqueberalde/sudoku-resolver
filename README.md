@@ -32,24 +32,31 @@ var matriz = new int[9, 9] {
 ```
 
 While the application scrolls through the blank spaces it outputs useful information.
-##### Examples:
-This output is shown when the application is analising row 0 and column 0 of the matriz.
+##### Example:
 ```
-Try resolve [0, 0]
-```
-
-This output is shown when the application could not resolve the blank space because it had more than a single number possibility.
-```
-Not Resolved. possible values: [1, 2, 3]
-```
-
-This output is shown when the application could resolve the blank space because it had a single number possibility.
-```
+Try resolve [4, 0]
+Not Resolved. Possible values: [2, 9]
+Try resolve [4, 1]
 Resolved: 9
+Try resolve [4, 3]
+Resolved: 3
+Try resolve [6, 0]
+Resolved: 8
+Try resolve [6, 4]
+Resolved: 6
+Try resolve [7, 0]
+Resolved: 9
+Try resolve [7, 1]
+Resolved: 5
+Try resolve [4, 0]
+Resolved: 2
+No blank space was found
+The Sudoku is resolved
 ```
 
 
 When the application no longer finds blank spaces it outputs the solved sudoku:
+##### Example:
 ```
 ##################
  1 2 4 6 3 5 7 8 9
@@ -63,8 +70,9 @@ When the application no longer finds blank spaces it outputs the solved sudoku:
  6 4 1 7 2 9 8 3 5
 ##################
 ```
-When the application is done it runs the sudoku validator.
-The sudoku validator shows the validation status, it shows 1 for correct filled number anda 0 for incorrect ones.
+
+
+When the application is done it shows the validation status for each position of the sudoku, if the position is valid the status is 1 but if it's not the status is 0.
 ##### Example:
 ```
 Validating Result:
