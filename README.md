@@ -1,12 +1,12 @@
 # sudoku-resolver
-> Vou escrever em inglês porque sou chique, mas fui eu mesmo que escrevi heim. Tem nada da internet aqui não papai.
+> Vou escrever em inglês porque sou chique.
 
 Resolves easy sudokus, the ones that has always one blank space with only one number possibility.
 
 
-The propose (purpose) of the project was (is) to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
+The purpose of the project is to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
-# Talking about (the) code
+# Talking about the code
 
 The algorithm scrolls through all blank spaces, analyzing how many possible numbers each blanck space has.
 
