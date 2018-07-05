@@ -1,20 +1,20 @@
 # sudoku-resolver
 > Vou escrever em inglês porque sou chique.
 
-Resolves easy sudokus, the ones that has always one blank space with only one number possibility.
+The application resolves easy sudokus, the ones that has always one blank space with a single number possibility.
 
 
 The purpose of the project is to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
 # Talking about the code
 
-The algorithm scrolls through all blank spaces, analyzing how many possible numbers each blanck space has.
+The algorithm scrolls through all blank spaces, analyzing how many possible numbers each blank space has.
 
-If, in case of only one number possibility was found, the application fills the blanck space. However, if more than one number  possibility is found, the application goes to next blanck space.
+In case of a single number possibility is found, the application fills the blank space. However, if more than one number possibility is found, the application goes to next blank space.
 
-The application does the single number possibility assessment until there is no blanck spaces.
+The application does the single number possibility assessment until there is no blank spaces.
 
-For while the unsolved sudoku needs to be seted by hard-code, as a two dimensions matriz int[9,9]. Fill all blanck spaces with 0.
+For while the unsolved sudoku needs to be seted by hard-code, as a two dimensions matriz int[9,9]. Fill all blank spaces with 0.
 
 #### Example:
 ```
