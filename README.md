@@ -33,22 +33,23 @@ var matriz = new int[9, 9] {
 
 While the application scrolls through the blank spaces it outputs useful information.
 ##### Examples:
+This output is shown when the application is analising row 0 and column 0 of the matriz.
 ```
 Try resolve [0, 0]
 ```
-##### This output is shown when the application is analising row 0 and column 0 of the matriz.
+
+This output is shown when the application could not resolve the blank space because it had more than a single number possibility.
 ```
 Not Resolved. possible values: [1, 2, 3]
 ```
-##### This output is shown when the application could not resolve the blank space because it had more than a single number possibility.
 
+This output is shown when the application could resolve the blank space because it had a single number possibility.
 ```
 Resolved: 9
 ```
-##### This output is shown when the application could resolve the blank space because it had a single number possibility.
+
 
 When the application no longer finds blank spaces it outputs the solved sudoku:
-##### Example:
 ```
 ##################
  1 2 4 6 3 5 7 8 9
