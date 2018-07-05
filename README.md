@@ -6,7 +6,7 @@ The propose of the project was to study and put in practice TDD development meth
 
 ### Talking about code
 
-The algorithm traverses all blank spaces analyzing how many numbre possibilities it has and in case it is only one, it fills the space and restart the verification.
+The algorithm travels through all blank spaces analyzing how many numbre possibilities it has and in case it is only one, it fills the space and restart the verification.
 For while sudoku to be solved is setted by hard-code, it is a two dimensions matriz int[9,9].
 
 ##### Example:
@@ -25,7 +25,6 @@ var matriz = new int[9, 9] {
 ```
 > Blank spaces are filled with 0 to be solved.
 
-#### Talking about code
 As the application travels through the blank spaces it outputs:
 "Try resolve [row, column]" where row is the row index and column is the column index of the current item.
 
