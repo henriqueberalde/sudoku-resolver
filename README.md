@@ -6,7 +6,7 @@ Resolves easy sudokus, the ones that has always one blank space with only one nu
 
 The propose (purpose) of the project was (is) to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
-### Talking about (the) code
+# Talking about (the) code
 
 The algorithm scrolls through all blank spaces, analyzing how many possible numbers each blanck space has.
 
@@ -16,7 +16,7 @@ The application does the single number possibility assessment until there is no 
 
 For while the unsolved sudoku needs to be seted by hard-code, as a two dimensions matriz int[9,9]. Fill all blanck spaces with 0.
 
-##### Example:
+#### Example:
 ```
 var matriz = new int[9, 9] {
     { 1, 0, 0, 6, 0, 5, 0, 8, 0 },
@@ -32,7 +32,7 @@ var matriz = new int[9, 9] {
 ```
 
 While the application scrolls through the blank spaces it outputs useful information.
-##### Example:
+#### Example:
 ```
 Try resolve [4, 0]
 Not Resolved. Possible values: [2, 9]
@@ -56,7 +56,7 @@ The Sudoku is resolved
 
 
 When the application no longer finds blank spaces it outputs the solved sudoku:
-##### Example:
+#### Example:
 ```
 ##################
  1 2 4 6 3 5 7 8 9
@@ -73,7 +73,7 @@ When the application no longer finds blank spaces it outputs the solved sudoku:
 
 
 When the application is done it shows the validation status for each position of the sudoku, if the position is valid the status is 1 but if it's not the status is 0.
-##### Example:
+#### Example:
 ```
 Validating Result:
 ######RESULT######
@@ -88,7 +88,7 @@ Validating Result:
  1 1 1 1 1 1 1 1 1
 ######RESULT######
 ```
-### New Features
+# New Features
 - [ ] Cover 100% of the Sudoku game rules on unity tests
 - [ ] Create an easy interface to input the sudoku to be solved.
 - [ ] Evolve the algorithm to solve complex sudokus, the ones that not always has one number possibility for white space
