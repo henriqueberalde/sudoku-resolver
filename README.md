@@ -4,12 +4,17 @@
 Resolves easy sudokus, the ones that has always one blank space with only one number possibility.
 
 
-The propose of the project was to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
+The propose (purpose) of the project was (is) to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
-### Talking about code
+### Talking about (the) code
 
-The algorithm travels through all blank spaces analyzing how many numbre possibilities it has and in case it is only one, it fills the space and restart the verification.
-For while sudoku to be solved is setted by hard-code, it is a two dimensions matriz int[9,9].
+The algorithm scrolls through all blank spaces, analyzing how many possible numbers each blanck space has.
+
+If, in case of only one number possibility was found, the application fills the blanck space. However, if more than one number  possibility is found, the application goes to next blanck space.
+
+The application does the single number possibility assessment until there is no blanck spaces.
+
+For while the unsolved sudoku needs to be seted by hard-code, as a two dimensions matriz int[9,9]. Fill all blanck spaces with 0.
 
 ##### Example:
 ```
@@ -25,28 +30,23 @@ var matriz = new int[9, 9] {
     { 0, 0, 0, 0, 0, 0, 8, 0, 5 }
 };
 ```
-> Blank spaces are filled with 0 to be solved.
 
-As the application travels through the blank spaces it outputs:
-"Try resolve [row, column]" where row is the row index and column is the column index of the current item.
-
-##### Example:
+While the application scrolls through the blank spaces it outputs useful information.
+##### Examples:
 ```
 Try resolve [0, 0]
 ```
-
-In case the application finds more than one possibility for the blank space it outpus:
-"Not Resolved. possible values: [n, n, n]" where n is the possibility number.
-##### Example:
+##### This output is shown when the application is analising row 0 and column 0 of the matriz.
 ```
 Not Resolved. possible values: [1, 2, 3]
 ```
-In case the application finds only one possibility it fills the value and outpus:
-"Resolved: n" where n is the correct number for the blank space.
-##### Example:
+##### This output is shown when the application could not resolve the blank space because it had more than a single number possibility.
+
 ```
 Resolved: 9
 ```
+##### This output is shown when the application could resolve the blank space because it had a single number possibility.
+
 When the application no longer finds blank spaces it outputs the solved sudoku:
 ##### Example:
 ```
