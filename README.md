@@ -2,6 +2,8 @@
 > Vou escrever em inglês porque sou chique, mas fui eu mesmo que escrevi heim. Tem nada da internet aqui não papai.
 
 Resolves easy sudokus, the ones that has always one blank space with only one number possibility.
+
+
 The propose of the project was to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
 ### Talking about code
