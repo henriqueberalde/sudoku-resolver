@@ -1,4 +1,4 @@
-# sudoku-resolver
+# Sudoku Resolver
 > Vou escrever em inglês porque sou chique.
 
 A simple Sudoku game resolver.
