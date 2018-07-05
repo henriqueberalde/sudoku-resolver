@@ -1,8 +1,10 @@
 # sudoku-resolver
 > Vou escrever em inglês porque sou chique.
 
-The application resolves easy sudokus, the ones that has always one blank space with a single number possibility.
+A simple Sudoku game resolver.
+[What is Sudoku?](https://www.learn-sudoku.com/what-is-sudoku.html).
 
+The application resolves easy sudokus, the ones that has always one blank space with a single number possibility.
 
 The purpose of the project is to study and put in practice TDD development method once the Sudoku game rules are very clear and defined.
 
