@@ -82,5 +82,5 @@ Validating Result:
 ### New Features
 - [ ] Cover 100% of the Sudoku game rules on unity tests
 - [ ] Create an easy interface to input the sudoku to be solved.
-- [ ] Evolve the algorithm to solve complex sudoku, the ones that not always has one number possibility for white space
+- [ ] Evolve the algorithm to solve complex sudokus, the ones that not always has one number possibility for white space
 - [ ] Plug a device to scan sudoku magazines to solve
