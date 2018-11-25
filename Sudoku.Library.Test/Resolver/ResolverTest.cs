@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
-using System;
-using static Sudoku.Resolver.SudokuResolver;
 
-namespace Sudoku.Resolver
+namespace Sudoku.Library.Test
 {
     [TestFixture]
     public class ResolverTest

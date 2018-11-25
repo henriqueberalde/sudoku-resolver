@@ -1,10 +1,9 @@
 ﻿using NUnit.Framework;
-using Sudoku.Validator;
 using System;
 using System.Collections.Generic;
-using static Sudoku.Validator.SudokuValidator;
+using static Sudoku.Library.SudokuValidator;
 
-namespace Sudoku
+namespace Sudoku.Library.Test
 {
     [TestFixture]
     public class SudokuUtilTest

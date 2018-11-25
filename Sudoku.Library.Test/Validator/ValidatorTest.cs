@@ -1,15 +1,14 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using static Sudoku.Validator.SudokuValidator;
 using Moq;
+using static Sudoku.Library.SudokuValidator;
 
-namespace Sudoku.Validator
+namespace Sudoku.Library.Test
 {
     [TestFixture]
     public class ValidatorTest
     {
-        private int[,] _sudokuMatriz;
+        //private int[,] _sudokuMatriz;
         private SudokuValidator _validator;
 
         [Test]

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sudoku.Validator;
-using static Sudoku.Validator.SudokuValidator;
+using Sudoku.Library;
+using static Sudoku.Library.SudokuValidator;
 
-namespace Sudoku.Resolver
+namespace Sudoku.Library
 {
     public class SudokuResolver
     {

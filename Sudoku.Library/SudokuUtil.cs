@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using static Sudoku.Validator.SudokuValidator;
+using static Sudoku.Library.SudokuValidator;
 
-namespace Sudoku
+namespace Sudoku.Library
 {
     public static class SudokuUtil
     {
@@ -47,7 +47,7 @@ namespace Sudoku
             return result;
         }
 
-        internal static int GetBlockIndex(int rowIndex, int columnIndex)
+        public static int GetBlockIndex(int rowIndex, int columnIndex)
         {
             var finalDick = new Dictionary<int, int>
             {

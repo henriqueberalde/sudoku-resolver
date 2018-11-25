@@ -1,5 +1,4 @@
-﻿using Sudoku.Resolver;
-using Sudoku.Validator;
+﻿using Sudoku.Library;
 using System;
 
 namespace Sudoku
