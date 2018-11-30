@@ -98,6 +98,24 @@ namespace Sudoku.Library
             return list;
         }
 
+        public List<AnalysisItem> Analyse()
+        {
+            var result = new List<AnalysisItem>();
+            foreach (var item in GetAllBlank())
+            {
+                var resolverItem = FindPossibleValues(item.Row, item.Column);
+                result.Add(new AnalysisItem
+                {
+                    Row = item.Row,
+                    Column = item.Column,
+                    PossibleValues = resolverItem.PossibleValues,
+                    Value = resolverItem.Value
+                });
+            }
+
+            return result;
+        }
+
         public ResolverItem FindPossibleValues(int row, int column)
         {
             var possibleOnRow = FindPossibleValues(SudokuUtil.GetRange(RangeType.Row, row));
@@ -136,6 +154,14 @@ namespace Sudoku.Library
 
                 return new ResolverItem { PossibleValues = list1.Intersect(list2).ToArray()};
             }
+        }
+
+        public class AnalysisItem
+        {
+            public int Row { get; set; }
+            public int Column { get; set; }
+            public int Value { get; set; }
+            public int[] PossibleValues { get; set; }
         }
     }
 }

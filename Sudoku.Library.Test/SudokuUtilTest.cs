@@ -175,6 +175,7 @@ namespace Sudoku.Library.Test
         {
             var result = SudokuUtil.GetBlockIndex(rowIndex, columnIndex);
             Assert.AreEqual(expected, result);
+            
         }
     }
 }
