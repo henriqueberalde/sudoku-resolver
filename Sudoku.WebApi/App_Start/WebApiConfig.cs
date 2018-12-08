@@ -11,6 +11,9 @@ namespace Sudoku.WebApi
         {
             // Web API configuration and services
             config.EnableCors();
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

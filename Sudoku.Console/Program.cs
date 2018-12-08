@@ -1,4 +1,5 @@
 ﻿using Sudoku.Library;
+using Sudoku.Library.Entities;
 
 namespace Sudoku.Console
 {
@@ -30,34 +31,23 @@ namespace Sudoku.Console
             //    { 0, 0, 0, 0, 0, 0, 8, 0, 5 }
             //};
 
-            Resolve(ref matriz);
-            DrawMatriz(matriz);
-            Validate(ref matriz);
-            System.Console.Read();
-        }
-
-        static void Resolve(ref int[,] matriz)
-        {
             var resolver = new SudokuResolver(matriz, m => System.Console.WriteLine(m));
             System.Console.WriteLine("Resolving Matriz:");
             DrawMatriz(matriz);
-
             resolver.Resolve();
-
             System.Console.WriteLine("Resolver Result:");
             matriz = resolver.Sudoku;
-        }
 
-        static void Validate(ref int[,] matriz)
-        {
-            var validator = new SudokuValidator(matriz);
+            DrawMatriz(matriz);
+
             System.Console.WriteLine("Validating Matriz");
-            //DrawMatriz(matriz);
-            validator.Validate(true);
+            resolver.Validate(true);
             System.Console.WriteLine("Validating Result:");
-            DrawResult(validator.Result);
-        }
+            DrawResult(resolver.Result);
 
+            System.Console.Read();
+        }
+        
         static void DrawMatriz(int[,] matriz)
         {
             System.Console.WriteLine("##################");
@@ -73,7 +63,7 @@ namespace Sudoku.Console
             System.Console.WriteLine("##################");
         }
 
-        static void DrawResult(SudokuValidator.ValidatorResult[,] result)
+        static void DrawResult(ValidatorResult[,] result)
         {
             System.Console.WriteLine("######RESULT######");
             for (int i = 0; i < 9; i++)
