@@ -66,7 +66,8 @@ namespace Sudoku.Library
             do
             {
                 refresh = false;
-                Analyse();
+                AnalysePhase1();
+                AnalysePhase2();
 
                 foreach (var item in GetAllBlank())
                     refresh = TryResolve(item.Row, item.Column) || refresh;
@@ -109,22 +110,53 @@ namespace Sudoku.Library
             return RangeItems.FindAll(i => i.Value == 0);
         }
 
-        public List<RangeItem> Analyse()
+        public List<RangeItem> AnalysePhase1()
         {
             for (int h = 0; h < 3; h++)
             {
                 var type = (RangeType)h;
 
-                for (int i = 0; i < _rows; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     var range = GetRange(type, i);
 
-                    for (int j = 0; j < _columns; j++)
+                    for (int j = 0; j < 9; j++)
                     {
                         var items = range.Where(o => o.PossibleValues.Contains(j)).ToList();
 
                         if (items.Count() == 1)
                             items[0].PossibleValues.RemoveAll(o => o != j);
+                    }
+                }
+            }
+
+            return RangeItems;
+        }
+
+        public List<RangeItem> AnalysePhase2()
+        {
+            for (int h = 0; h < 3; h++)
+            {
+                var type = (RangeType)h;
+
+                for (int i = 0; i < 9; i++)
+                {
+                    var range = GetRange(type, i);
+
+                    for (int j = 0; j < range.Count; j++)
+                    {
+                        var qtdPossibleValues = range[j].PossibleValues.Count;
+
+                        if (qtdPossibleValues <= 1)
+                            continue;
+
+                        var list = range.Where(o => o.PossibleValues.Count == qtdPossibleValues);
+
+                        if (list.Count() != qtdPossibleValues)
+                            continue;
+
+                        foreach (var item in range.Where(o => !list.Contains(o)))
+                            item.PossibleValues.RemoveAll(v => range[j].PossibleValues.Contains(v));
                     }
                 }
             }
