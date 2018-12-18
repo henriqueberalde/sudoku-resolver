@@ -150,13 +150,33 @@ namespace Sudoku.Library
                         if (qtdPossibleValues <= 1)
                             continue;
 
-                        var list = range.Where(o => o.PossibleValues.Count == qtdPossibleValues);
+                        //Acha as posições que tem a mesma quantidade de possibilidades
+                        var list = range.Where(o => o.PossibleValues.Count == qtdPossibleValues).ToList();
 
+                        //A quantidade de possibilidades deve ser igual a quantidade de posições encontradas
                         if (list.Count() != qtdPossibleValues)
                             continue;
 
-                        foreach (var item in range.Where(o => !list.Contains(o)))
-                            item.PossibleValues.RemoveAll(v => range[j].PossibleValues.Contains(v));
+                        //Verifica se as possibilidades são as mesmas
+                        var allSameValue = true;
+                        for (int a = 0; a < qtdPossibleValues; a++)
+                        {
+                            var currentValue = list[0].PossibleValues[a];
+                            for (int b = 0; b < qtdPossibleValues; b++)
+                            {
+                                if (currentValue != list[b].PossibleValues[a])
+                                    allSameValue = false;
+                            }
+                        }
+
+                        if (allSameValue)
+                        {
+                            var others = range.Where(o => !list.Contains(o));
+                            foreach (var item in others)
+                                item.PossibleValues.RemoveAll(v => range[j].PossibleValues.Contains(v));
+                        }
+
+                        //TODO - Retirar essas mesmas possibilidades também da linha, coluna ou bloco desses caras (o que for igual para todos)
                     }
                 }
             }
