@@ -66,7 +66,8 @@ namespace Sudoku.Library
             do
             {
                 refresh = false;
-                Analyse();
+                AnalysePhase1();
+                AnalysePhase2();
 
                 foreach (var item in GetAllBlank())
                     refresh = TryResolve(item.Row, item.Column) || refresh;
@@ -109,22 +110,73 @@ namespace Sudoku.Library
             return RangeItems.FindAll(i => i.Value == 0);
         }
 
-        public List<RangeItem> Analyse()
+        public List<RangeItem> AnalysePhase1()
         {
             for (int h = 0; h < 3; h++)
             {
                 var type = (RangeType)h;
 
-                for (int i = 0; i < _rows; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     var range = GetRange(type, i);
 
-                    for (int j = 0; j < _columns; j++)
+                    for (int j = 0; j < 9; j++)
                     {
                         var items = range.Where(o => o.PossibleValues.Contains(j)).ToList();
 
                         if (items.Count() == 1)
                             items[0].PossibleValues.RemoveAll(o => o != j);
+                    }
+                }
+            }
+
+            return RangeItems;
+        }
+
+        public List<RangeItem> AnalysePhase2()
+        {
+            for (int h = 0; h < 3; h++)
+            {
+                var type = (RangeType)h;
+
+                for (int i = 0; i < 9; i++)
+                {
+                    var range = GetRange(type, i);
+
+                    for (int j = 0; j < range.Count; j++)
+                    {
+                        var qtdPossibleValues = range[j].PossibleValues.Count;
+
+                        if (qtdPossibleValues <= 1)
+                            continue;
+
+                        //Acha as posições que tem a mesma quantidade de possibilidades
+                        var list = range.Where(o => o.PossibleValues.Count == qtdPossibleValues).ToList();
+
+                        //A quantidade de possibilidades deve ser igual a quantidade de posições encontradas
+                        if (list.Count() != qtdPossibleValues)
+                            continue;
+
+                        //Verifica se as possibilidades são as mesmas
+                        var allSameValue = true;
+                        for (int a = 0; a < qtdPossibleValues; a++)
+                        {
+                            var currentValue = list[0].PossibleValues[a];
+                            for (int b = 0; b < qtdPossibleValues; b++)
+                            {
+                                if (currentValue != list[b].PossibleValues[a])
+                                    allSameValue = false;
+                            }
+                        }
+
+                        if (allSameValue)
+                        {
+                            var others = range.Where(o => !list.Contains(o));
+                            foreach (var item in others)
+                                item.PossibleValues.RemoveAll(v => range[j].PossibleValues.Contains(v));
+                        }
+
+                        //TODO - Retirar essas mesmas possibilidades também da linha, coluna ou bloco desses caras (o que for igual para todos)
                     }
                 }
             }

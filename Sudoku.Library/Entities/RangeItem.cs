@@ -23,5 +23,12 @@ namespace Sudoku.Library.Entities
         public int Column { get; set; }
         public int Value { get; set; }
         public List<int> PossibleValues { get; set; }
+
+        public string Id {
+            get
+            {
+                return Row.ToString() + Column.ToString();
+            }
+        }
     }
 }
